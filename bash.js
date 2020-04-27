@@ -3,6 +3,7 @@
 const {pwd} = require('./pwd');
 const {ls} = require('./ls');
 const {cat} = require('./cat');
+const {curl} = require('./curl');
 
 
 
@@ -24,6 +25,9 @@ process.stdin.on('data', (data) => {
   }
   else if (cmd === 'cat') {
     cat(argument);
+  }
+  else if (cmd === 'curl') {
+    curl(argument);
   }
 
 })
