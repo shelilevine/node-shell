@@ -1,10 +1,11 @@
-function pwd() {
-  process.stdout.write(process.cwd());
-  // process.stdout.write('You typed: ' + cmd);
-  process.stdout.write('\nprompt > ');
+function pwd(callback) {
+  // process.stdout.write(process.cwd());
+  // process.stdout.write('\nprompt > ');
+  const cwd = process.cwd();
+  callback(cwd);
 }
 
 
 module.exports = {
-  pwd
+  pwd,
 }

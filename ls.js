@@ -1,12 +1,14 @@
 const fs = require('fs');
 
-function ls() {
+function ls(callback) {
   fs.readdir('./', 'utf8', (err, files) => {
     if (err) {
-      throw err;
+      // throw err;
+      callback(err);
     } else {
-      process.stdout.write(files.join('\n'))
-      process.stdout.write('\nprompt > ');
+      callback(files.join('\n'));
+      // process.stdout.write(files.join('\n'))
+      // process.stdout.write('\nprompt > ');
     }
   })
 

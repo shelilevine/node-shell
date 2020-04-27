@@ -6,6 +6,11 @@ const {cat} = require('./cat');
 const {curl} = require('./curl');
 
 
+const done = (output) => {
+  process.stdout.write(output);
+  process.stdout.write('\nprompt > ');
+}
+
 
 //Output a prompt
 process.stdout.write('prompt > ');
@@ -18,10 +23,10 @@ process.stdin.on('data', (data) => {
   const argument = input[1];
 
   if (cmd === 'pwd') {
-    pwd();
+    pwd(done);
   }
   else if (cmd === 'ls') {
-    ls();
+    ls(done);
   }
   else if (cmd === 'cat') {
     cat(argument);
